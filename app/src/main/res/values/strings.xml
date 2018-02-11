@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Darts Score</string>
+    <string name="player_a">Player A </string>
+    <string name="start_points">501</string>
+    <string name="games_won">Games won:</string>
+    <string name="player_b">Player B </string>
+    <string name="player_turn">Player turn: </string>
+    <string name="darts_remaining">Darts remaining: </string>
+    <string name="number_hit">Number hit:</string>
+    <string name="reset_all">Reset All</string>
+    <string name="reset_current_game">Reset Current Game</string>
+    <string name="winnerA">Player A Wins!!!</string>
+    <string name="winnerB">Player B Wins!!!</string>
+    <string name="bust">BUST!! Your turn is over!</string>
+    <string name="field_empty">please enter something in text box</string>
+    <string name="miss">Player Missed!</string>
+    <string name="too_low">Too low</string>
+    <string name="too_high">Too high</string>
+    <string name="games_won1">Games won: %d</string>
+
+
+</resources>
