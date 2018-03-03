@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
@@ -27,35 +28,12 @@ public class MainActivity extends AppCompatActivity {
     int playerBWins = 0;
     Chronometer counter;
 
-//    @Override
-//    protected void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        outState.putInt("scorePlayerA", scorePlayerA);
-//        outState.putInt("scorePlayerB", scorePlayerB);
-//        outState.putInt("darts", darts);
-//        outState.putBoolean("playerATurn", playerATurn);
-//        outState.putBoolean("playerATurn", playerATurn);
-//        outState.putInt("playerAWins", playerAWins);
-//        outState.putInt("playerBWins", playerBWins);
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        scorePlayerA = savedInstanceState.getInt("scorePlayerA");
-//        scorePlayerB = savedInstanceState.getInt("scorePlayerB");
-//        darts = savedInstanceState.getInt("darts");
-//        playerAWins = savedInstanceState.getInt("playerAWins");
-//        playerBWins = savedInstanceState.getInt("playerBWins");
-//        playerATurn = savedInstanceState.getBoolean("playerATurn");
-//        playerBTurn = savedInstanceState.getBoolean("playerBTurn");
-//    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         displayScorePlayerA(scorePlayerA);
         displayScorePlayerB(scorePlayerB);
         displayPlayerWinsA();
@@ -63,6 +41,40 @@ public class MainActivity extends AppCompatActivity {
         displayPlayerTurn();
         displayPlayerDarts();
         timer();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt("scorePlayerA", scorePlayerA);
+        savedInstanceState.putInt("scorePlayerB", scorePlayerB);
+        savedInstanceState.putInt("darts", darts);
+        savedInstanceState.putBoolean("playerATurn", playerATurn);
+        savedInstanceState.putBoolean("playerBTurn", playerBTurn);
+        savedInstanceState.putInt("playerAWins", playerAWins);
+        savedInstanceState.putInt("playerBWins", playerBWins);
+        savedInstanceState.putLong("counter", counter.getBase());
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        scorePlayerA = savedInstanceState.getInt("scorePlayerA");
+        scorePlayerB = savedInstanceState.getInt("scorePlayerB");
+        darts = savedInstanceState.getInt("darts");
+        playerAWins = savedInstanceState.getInt("playerAWins");
+        playerBWins = savedInstanceState.getInt("playerBWins");
+        playerATurn = savedInstanceState.getBoolean("playerATurn");
+        playerBTurn = savedInstanceState.getBoolean("playerBTurn");
+        counter.setBase(savedInstanceState.getLong("counter"));
+        counter.start();
+        displayScorePlayerA(scorePlayerA);
+        displayScorePlayerB(scorePlayerB);
+        displayPlayerWinsA();
+        displayPlayerWinsB();
+        displayPlayerTurn();
+        displayPlayerDarts();
+
     }
 
 
@@ -103,8 +115,9 @@ public class MainActivity extends AppCompatActivity {
      * Tells the user who's turn it is
      */
     private void displayPlayerTurn() {
-        TextView playerTextView = findViewById(R.id.player_turn);
         String player = "";
+        TextView playerTextView = findViewById(R.id.player_turn);
+
         if (playerATurn) {
             player = getString(R.string.player_a);
         }
@@ -400,10 +413,11 @@ public class MainActivity extends AppCompatActivity {
      * displays running time of the current game
      */
     public void timer() {
-        Chronometer counter = findViewById(R.id.timer);
+        counter = findViewById(R.id.timer);
         counter.setBase(SystemClock.elapsedRealtime());
         counter.start();
         counter.setFormat("Current game time:  %s");
+        //return counter;
 
     }
 
