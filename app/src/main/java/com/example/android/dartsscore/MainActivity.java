@@ -407,6 +407,10 @@ public class MainActivity extends AppCompatActivity {
         displayPlayerTurn();
         displayPlayerDarts();
         timer();
+        EditText numberHit = findViewById(R.id.number_hit);
+        if (numberHit != null) {
+            numberHit.setText("");
+        }
     }
 
     /**
