@@ -175,7 +175,10 @@
                     android:hint="@string/number_hit"
                     android:inputType="number"
                     android:maxLength="2"
-                    android:padding="8dp" />
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="8dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -195,7 +198,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24dp"
                         android:layout_marginRight="24dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/regular_button"
                         android:onClick="hitSingle"
                         android:text="Single" />
 
@@ -205,7 +209,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24dp"
                         android:layout_marginRight="24dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/regular_button"
                         android:onClick="hitDouble"
                         android:text="Double" />
 
@@ -215,7 +220,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24dp"
                         android:layout_marginRight="24dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/regular_button"
                         android:onClick="hitTreble"
                         android:text="Triple" />
                 </LinearLayout>
@@ -232,10 +238,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24dp"
                         android:layout_marginRight="24dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bull_button"
                         android:onClick="bull"
                         android:text="Bull"
-                        android:textColor="#f44a4a" />
+                        android:textColor="#000000" />
 
                     <Button
                         android:id="@+id/outer_bull"
@@ -243,10 +250,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24dp"
                         android:layout_marginRight="24dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/outer_bull_button"
                         android:onClick="outerBull"
                         android:text="Outer Bull"
-                        android:textColor="#00a007" />
+                        android:textColor="#000000" />
 
                     <Button
                         android:id="@+id/miss"
@@ -254,10 +262,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24dp"
                         android:layout_marginRight="24dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/missed_button"
                         android:onClick="miss"
                         android:text="Missed!"
-                        android:textColor="#6b6464" />
+                        android:textColor="#000000" />
                 </LinearLayout>
             </LinearLayout>
 
